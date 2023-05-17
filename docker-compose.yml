@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  kt-company:
+    ports:
+      - "8001:8001"
+    image: python:3.10
+    working_dir: /app
+
+    build: .
+    entrypoint:
+      - "/bin/sh"
+      - "-c"
+    command:
+      - "ls"
+      - "ls app/"
+      - "python -m ./app/kt.company.py"
+    restart: always
+    volumes:
+      - .:/opt/app
